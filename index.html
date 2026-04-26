@@ -3,444 +3,265 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Toss DevOps Resume Example</title>
+  <title>신경선 경력기술서 - Classic</title>
   <style>
     :root {
-      --bg: #f5f7fb;
-      --card: #ffffff;
-      --text: #111827;
-      --muted: #6b7280;
-      --line: #e5e7eb;
-      --accent: #2563eb;
-      --accent-soft: #eff6ff;
+      --text: #111111;
+      --muted: #666666;
+      --line: #bdbdbd;
+      --accent: #222222;
     }
-    * { box-sizing: border-box; }
+
+    * { box-sizing: border-box; } 
+
     body {
       margin: 0;
-      font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-      background: var(--bg);
+      background: #ffffff;
       color: var(--text);
-      line-height: 1.55;
+      font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      line-height: 1.45;
+      font-size: 14px;
     }
+
     .page {
-      width: 960px;
-      margin: 24px auto;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+      width: 860px;
+      margin: 0 auto;
+      padding: 42px 48px 56px;
+      background: #ffffff;
     }
+
     .header {
-      padding: 36px 40px 28px;
-      border-bottom: 1px solid var(--line);
-      background: linear-gradient(180deg, #ffffff 0%, #fafcff 100%);
+      text-align: center;
+      padding-bottom: 14px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid #888888;
     }
-    .title {
-      font-size: 34px;
+
+    .name {
+      font-size: 42px;
+      font-weight: 800;
+      margin: 0 0 8px;
+      color: #444444;
+      letter-spacing: -0.03em;
+    }
+
+    .role {
+      font-size: 16px;
       font-weight: 700;
       margin: 0 0 8px;
     }
-    .subtitle {
-      font-size: 16px;
-      color: var(--muted);
-      margin: 0 0 18px;
-    }
+
     .contact {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px 20px;
-      font-size: 14px;
-    }
-    .layout {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 0;
-    }
-    .sidebar {
-      padding: 28px 24px 40px;
-      border-right: 1px solid var(--line);
-      background: #fcfdff;
-    }
-    .content {
-      padding: 28px 32px 40px;
-    }
-    .section {
-      margin-bottom: 28px;
-    }
-    .section:last-child { margin-bottom: 0; }
-    .section h2 {
-      font-size: 15px;
-      margin: 0 0 12px;
-      color: var(--accent);
-      letter-spacing: 0.02em;
-    }
-    .summary-box {
-      background: var(--accent-soft);
-      border: 1px solid #dbeafe;
-      border-radius: 12px;
-      padding: 14px 16px;
-      font-size: 14px;
-    }
-    .chips {
       display: flex;
+      justify-content: center;
+      gap: 10px;
       flex-wrap: wrap;
-      gap: 8px;
-    }
-    .chip {
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #f3f4f6;
-      border: 1px solid var(--line);
       font-size: 13px;
+      color: var(--text);
     }
-    .item {
-      margin-bottom: 18px;
-    }
-    .item:last-child { margin-bottom: 0; }
-    .item-title {
-      font-size: 16px;
-      font-weight: 700;
-      margin: 0 0 4px;
-    }
-    .meta {
-      font-size: 13px;
+
+    .contact span + span::before {
+      content: "|";
+      margin-right: 10px;
       color: var(--muted);
-      margin-bottom: 8px;
     }
-    ul {
-      margin: 8px 0 0 18px;
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 800;
+      text-decoration: underline;
+      margin: 0 0 14px;
+      color: var(--accent);
+    }
+
+    .career-list,
+    .impact-list,
+    .tech-list,
+    .cert-list {
+      margin: 0 0 0 22px;
       padding: 0;
     }
-    li { margin-bottom: 6px; }
-    .project {
-      padding: 16px 18px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      margin-bottom: 16px;
+
+    li {
+      margin-bottom: 6px;
     }
-    .project:last-child { margin-bottom: 0; }
+
+    .company-block {
+      margin-bottom: 28px;
+    }
+
+    .company-head,
     .project-head {
       display: flex;
       justify-content: space-between;
-      gap: 12px;
       align-items: baseline;
-      margin-bottom: 8px;
-    }
-    .project-name {
-      font-size: 17px;
-      font-weight: 700;
-      margin: 0;
-    }
-    .project-period {
-      font-size: 13px;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    .label {
-      display: inline-block;
-      font-size: 12px;
-      color: var(--accent);
-      background: var(--accent-soft);
-      border: 1px solid #dbeafe;
-      padding: 4px 8px;
-      border-radius: 999px;
-      margin-bottom: 10px;
-    }
-    .project-badge {
-      display: inline-block;
-      font-size: 12px;
-      color: var(--muted);
-      background: #f9fafb;
-      border: 1px solid var(--line);
-      padding: 4px 8px;
-      border-radius: 999px;
-      margin-bottom: 10px;
-    }
-    .highlight-title {
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 1.45;
-      margin: 0 0 10px;
-      color: var(--text);
-    }
-    .highlight-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    .highlight-period {
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px 20px;
-      font-size: 14px;
-    }
-    .small-title {
-      font-weight: 700;
+      gap: 16px;
       margin-bottom: 4px;
     }
-    .paragraph-indent {
+
+    .company-name,
+    .project-name {
+      font-size: 17px;
+      font-weight: 800;
       margin: 0;
-      margin-left: 1.2em;
-      font-size: 14px;
     }
-    .footer-note {
-      padding: 18px 32px 28px;
-      border-top: 1px solid var(--line);
+
+    .period {
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      font-weight: 700;
+    }
+
+    .position {
+      font-size: 14px;
+      font-style: italic;
+      margin: 0 0 8px;
+    }
+
+    .sub-title {
+      font-size: 14px;
+      font-weight: 800;
+      margin: 10px 0 4px;
+    }
+
+    .project {
+      margin-bottom: 26px;
+    }
+
+    .project-meta {
       font-size: 13px;
       color: var(--muted);
-      background: #fafafa;
+      margin-bottom: 8px;
     }
-    @media (max-width: 1000px) {
-      .page { width: calc(100% - 24px); }
-      .layout { grid-template-columns: 1fr; }
-      .sidebar { border-right: 0; border-bottom: 1px solid var(--line); }
+
+    .project-meta strong {
+      color: var(--text);
+    }
+
+    .divider-title {
+      margin: 34px 0 22px;
+      padding-top: 12px;
+      border-top: 1px solid #999999;
+      text-align: center;
+      font-size: 22px;
+      font-weight: 800;
+      text-decoration: underline;
+    }
+
+    .tech-grid {
+      display: block;
+    }
+
+    .tech-category {
+      font-weight: 800;
+    }
+
+    .footer {
+      margin-top: 34px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media print {
+      .page {
+        width: 100%;
+        padding: 28px 42px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="page">
+  <main class="page">
     <header class="header">
-      <h1 class="title">신경선</h1>
-      <p class="subtitle">Platform Engineer / Backend Engineer</p>
+      <h1 class="name">신경선</h1>
+      <p class="role">Platform Engineer / Backend Engineer</p>
       <div class="contact">
-        <div>Email: tlsrid1119@gmail.com</div>
-        <div>GitHub: github.com/shin-gyeongseon</div>
+        <span>Location: Seoul, South Korea</span>
+        <span>Email: tlsrid1119@gmail.com</span>
+        <span>GitHub: github.com/shin-gyeongseon</span>
       </div>
     </header>
 
-    <div class="layout">
-      <aside class="sidebar">
-        <section class="section">
-          <h2>한 줄 소개</h2>
-          <div class="summary-box">
-            백엔드 개발을 바탕으로 클라우드 환경의 서비스 구조와 운영 방식을 함께 개선하며, 반복되는 운영 문제를 공통 기준으로 정리해 안정적인 서비스 기반을 만들어온 엔지니어.
-          </div>
-        </section>
+    <section class="section">
+      <h2 class="section-title">Summary</h2>
+      <ul class="career-list">
+        <li>Backend Engineer로 커리어를 시작해 Kubernetes 기반 서비스 운영, 운영 자동화, 클라우드 플랫폼 프로젝트로 역할을 확장</li>
+        <li>생성형 AI 워크플로우, 분산 AI 워크로드, 클라우드 공통 서비스 운영 등 플랫폼 기반 서비스 개발·운영</li>
+        <li>배포·운영 구조를 정리하고 반복되는 운영 문제를 공통 기준으로 개선</li>
+      </ul>
+    </section>
 
-        <section class="section">
-          <h2>핵심 역량</h2>
-          <div class="item">
-            <div class="small-title">플랫폼 백엔드 설계</div>
-            <div>관리형 서비스와 플랫폼 기능을 서비스 형태로 제공하기 위한 백엔드 구조를 설계한 경험</div>
-          </div>
-          <div class="item">
-            <div class="small-title">서비스 설정 표준화</div>
-            <div>서비스별 설정을 공통 구조로 정리하고 운영 가능한 기준으로 표준화한 경험</div>
-          </div>
-          <div class="item">
-            <div class="small-title">클라우드 네이티브 운영</div>
-            <div>Kubernetes 기반 환경에서 서비스 배포, 운영, 장애 대응을 수행한 경험</div>
-          </div>
-          <div class="item">
-            <div class="small-title">관측성 기반 분석</div>
-            <div>로그·메트릭·실행 추적을 바탕으로 문제 원인을 분석하고 개선한 경험</div>
-          </div>
-          <div class="item">
-            <div class="small-title">운영 자동화 설계</div>
-            <div>반복되는 운영 작업을 자동화하고 운영 절차를 구조화한 경험</div>
-          </div>
-        </section>
+    <section class="section">
+      <h2 class="section-title">Technical Skills</h2>
+      <ul class="tech-list">
+        <li><strong>Languages:</strong> Java, Python, Go</li>
+        <li><strong>Backend:</strong> Spring Boot, Spring, FastAPI, REST API</li>
+        <li><strong>Database:</strong> Oracle, Redis</li>
+        <li><strong>Cloud Native:</strong> Kubernetes, Docker, Helm</li>
+        <li><strong>Tools:</strong> Git, GitLab CI, Argo CD, Grafana, Kibana</li>
+      </ul>
+    </section>
 
-        <section class="section">
-          <h2>기술 스택</h2>
-          <div class="item">
-            <div class="small-title">Language</div>
-            <div>Java, Python, Go</div>
-          </div>
-          <div class="item">
-            <div class="small-title">Backend</div>
-            <div>Spring Boot, FastAPI, REST API</div>
-          </div>
-          <div class="item">
-            <div class="small-title">Infra / DevOps</div>
-            <div>Kubernetes, Docker, Helm, Git, GitLab CI, Argo CD, Harbor</div>
-          </div>
-          <div class="item">
-            <div class="small-title">Data</div>
-            <div>Oracle, Redis</div>
-          </div>
-          <div class="item">
-            <div class="small-title">Observability</div>
-            <div>Elasticsearch &amp; Kibana, Grafana, Loki, Promtail, Monitoring &amp; Alerting</div>
-          </div>
-        </section>
+    <div class="divider-title">Professional Experience</div>
 
-        <section class="section">
-          <h2>자격증</h2>
-          <ul>
-            <li>CKA (Certified Kubernetes Administrator)</li>
-            <li>정보처리기사</li>
-          </ul>
-        </section>
-      </aside>
+    <section class="section">
+      <div class="company-block">
+        <div class="company-head">
+          <h2 class="company-name">SHIFTONE Inc.</h2>
+          <div class="period">2022 - PRESENT</div>
+        </div>
+        <p class="position">Server &amp; DevOps Engineer</p>
 
-      <main class="content">
-        <section class="section">
-          <h2>경력 요약</h2>
-          <div class="item">
-            <div class="item-title">SHIFTONE Inc. · Server And DevOps Engineer</div>
-            <div class="meta">2022 - Present</div>
-            <p class="paragraph-indent">Backend Engineer로 시작해 운영 자동화와 Kubernetes 기반 서비스 운영을 경험했고, 이후 클라우드 플랫폼을 위한 매니지드 서비스와 IDP 프로젝트를 수행하며 플랫폼 엔지니어링 역할로 확장했습니다. 단순 운영보다 배포·운영 구조를 정리하고 반복되는 운영 문제를 공통 기준으로 개선하는 데 집중해왔습니다.</p>
-          </div>
-          <div class="item">
-            <div class="item-title">TOMATO SYSTEM Inc. · Backend Engineer</div>
-            <div class="meta">2020 - 2022</div>
-            <p class="paragraph-indent">학교 및 기업 고객을 대상으로 포털 솔루션의 개발, 맞춤화, 유지보수를 수행했습니다. 데이터 구조 설계와 API 개발을 통해 사용자 접근성과 편의성을 개선하고, 고객 요구사항을 반영한 기능 고도화와 운영 이슈 대응을 맡으며 안정적이고 효율적인 서비스 제공에 기여했습니다.</p>
-          </div>
-        </section>
+        <p>
+          클라우드 플랫폼 환경에서 백엔드 개발과 Kubernetes 기반 운영을 수행하며,
+          관리형 서비스 구조 설계, 배포 자동화, 운영 기준 표준화, 관측성 개선 업무를 담당했습니다.
+        </p>
 
-        <section class="section">
-          <h2>주요 프로젝트 하이라이트</h2>
-          <div class="project">
-            <h3 class="highlight-title">생성형 AI 워크플로우의 운영·관측·개선 사이클을 포함한 관리형 서비스 기반 구축</h3>
-            <div class="project-badge">생성형 AI 워크플로우 매니지드 서비스 구축</div>
-            <div class="highlight-meta">
-              <div class="label">Platform / Backend</div>
-              <div class="highlight-period">2026.02 - 현재</div>
-            </div>
-            <p>Langflow 기반 생성형 AI 워크플로우를 플랫폼 안에서 안정적으로 제공할 수 있도록 배포 구조와 운영 기준을 설계했습니다.</p>
-            <p>여기에 실행 결과와 응답 흐름을 추적·분석할 수 있는 체계를 함께 구성해 이상 응답 원인 파악과 품질 개선을 용이하게 만들었고, 결과적으로 서비스 운영과 기능 개발을 더 빠르게 반복할 수 있는 기반을 마련했습니다.</p>
-          </div>
+        <ul>
+          <li>클라우드 플랫폼 공통 서비스 및 Managed Service 운영·개선</li>
+          <li>Spring Boot 기반 플랫폼 관리 API 설계·개발</li>
+          <li>Kubernetes, Helm 기반 서비스 배포 구조 설계 및 운영 기준 정리</li>
+          <li>Langflow 기반 생성형 AI 워크플로우 관리형 서비스 구조 설계</li>
+          <li>Ray 기반 분산 AI 워크로드 실행 구조 추상화 및 관리 인터페이스 설계</li>
+          <li>GitLab CI, Argo CD 기반 배포 자동화와 GitOps 운영 흐름 구성</li>
+          <li>Grafana, Kibana 기반 로그·메트릭 확인 및 운영 이슈 대응</li>
+        </ul>
+      </div>
 
-          <div class="project">
-            <h3 class="highlight-title">단일 노드 한계를 넘어 분산 GPU 자원을 활용할 수 있는 AI 실행 기반 구축</h3>
-            <div class="project-badge">분산 AI 워크로드 매니지드 서비스 개발</div>
-            <div class="highlight-meta">
-              <div class="label">Platform / Backend</div>
-              <div class="highlight-period">2025 - 2026</div>
-            </div>
-            <p>AI 학습과 서빙이 단일 노드 자원에 제한되지 않도록, 여러 노드에 분산된 GPU 자원을 활용할 수 있는 실행 기반을 설계했습니다.</p>
-            <p>Ray 기반 분산 실행 구조와 Kubernetes 자원 제어를 플랫폼 API 뒤로 추상화해, 복잡한 분산 GPU 오케스트레이션을 관리형 방식으로 사용할 수 있는 구조를 마련했습니다.</p>
-          </div>
+      <div class="company-block">
+        <div class="company-head">
+          <h2 class="company-name">TOMATO SYSTEM Inc.</h2>
+          <div class="period">2020 - 2022</div>
+        </div>
+        <p class="position">Backend Engineer</p>
+        <ul>
+          <li>학교 및 기업 고객을 대상으로 포털 솔루션 개발, 맞춤화, 유지보수 수행</li>
+          <li>데이터 구조 설계와 API 개발을 통해 사용자 접근성과 편의성 개선</li>
+          <li>고객 요구사항을 반영한 기능 고도화 수행</li>
+          <li>운영 이슈 대응을 맡으며 안정적이고 효율적인 서비스 제공에 기여</li>
+        </ul>
+      </div>
+    </section>
 
-          <div class="project">
-            <h3 class="highlight-title">온프레미스 환경의 서비스를 Kubernetes 기반으로 전환하고 배포·운영 절차를 일관된 방식으로 정비</h3>
-            <div class="project-badge">온프레미스 환경의 Kubernetes 전환</div>
-            <div class="highlight-meta">
-              <div class="label">DevOps</div>
-              <div class="highlight-period">2022 - 2023</div>
-            </div>
-            <p>온프레미스 환경에서 운영되던 서비스를 Kubernetes 기반으로 전환하고, 배포와 운영 절차를 일관된 방식으로 정비했습니다.</p>
-            <p>GitLab CI와 Argo CD를 연계한 GitOps 배포 체계를 구축하고, 로그 수집과 메트릭 시각화를 포함한 모니터링 시스템을 마련해 클러스터와 서비스 상태를 지속적으로 확인할 수 있는 운영 기반을 만들었습니다.</p>
-          </div>
-        </section>
+    <section class="section">
+      <h2 class="section-title">Certifications</h2>
+      <ul class="cert-list">
+        <li>CKA (Certified Kubernetes Administrator)</li>
+        <li>정보처리기사</li>
+      </ul>
+    </section>
 
-        <section class="section">
-          <h2>상세 경력기술서</h2>
-
-          <div class="project">
-            <div class="project-head">
-              <h3 class="project-name">1) 생성형 AI 워크플로우 매니지드 서비스 구축</h3>
-              <div class="project-period">2026.02 - 현재</div>
-            </div>
-            <div class="item">
-              <div class="small-title">프로젝트 개요</div>
-              <div>Langflow 기반 생성형 AI 워크플로우를 플랫폼 안에서 지속적으로 개발·배포·운영할 수 있도록 관리형 서비스 구조와 관측 체계를 함께 설계한 프로젝트입니다. 단순 서비스 제공을 넘어, 이상 응답 분석과 품질 개선이 가능한 운영 기반 마련에 초점을 두었습니다.</div>
-            </div>
-            <div class="item">
-              <div class="small-title">맡은 역할</div>
-              <ul>
-                <li>서비스 설정 스키마 설계</li>
-                <li>관리 API 설계 및 개발</li>
-                <li>응답 추적·분석 체계 구성</li>
-                <li>IDE·Runtime 배포 정책 정립</li>
-                <li>공통 컴포넌트 개발 프로세스 제안</li>
-                <li>멀티테넌시 운영 기준 정의</li>
-              </ul>
-            </div>
-            <div class="item">
-              <div class="small-title">기술</div>
-              <div>Langflow, Phoenix, Kubernetes, Helm, Spring Boot, PostgreSQL</div>
-            </div>
-          </div>
-
-          <div class="project">
-            <div class="project-head">
-              <h3 class="project-name">2) 분산 AI 워크로드 매니지드 서비스 개발</h3>
-              <div class="project-period">2025 - 2026</div>
-            </div>
-            <div class="item">
-              <div class="small-title">프로젝트 개요</div>
-              <div>Ray 기반 분산 컴퓨팅 환경에서 AI 학습 및 서빙 워크로드를 관리형으로 운영할 수 있도록 제어 방식과 관리 인터페이스를 설계한 프로젝트입니다. 사용자가 Kubernetes 자원과 Ray CRD를 직접 다루지 않고도 워크로드를 실행할 수 있는 구조를 정리했습니다.</div>
-            </div>
-            <div class="item">
-              <div class="small-title">맡은 역할</div>
-              <ul>
-                <li>분산 워크로드 관리 API 설계 및 개발</li>
-                <li>Fabric8 기반 Kubernetes Client 모듈 구현</li>
-                <li>Ray CRD 제어 로직 공통화</li>
-                <li>분산 실행 자원 제어 구조 설계</li>
-              </ul>
-            </div>
-            <div class="item">
-              <div class="small-title">기술</div>
-              <div>Ray, Fabric8, Kubernetes, Spring Boot, Oracle</div>
-            </div>
-          </div>
-
-          <div class="project">
-            <div class="project-head">
-              <h3 class="project-name">3) 클라우드 플랫폼 공통 서비스 및 Managed Service 운영·개선</h3>
-              <div class="project-period">2023 - 2025</div>
-            </div>
-            <div class="item">
-              <div class="small-title">프로젝트 개요</div>
-              <div>Private Cloud와 MS Azure 기반 Public Cloud를 함께 지원하는 Hybrid Cloud 플랫폼에서 공통 서비스와 다양한 Managed Service의 운영·개선 업무를 수행한 프로젝트입니다. 플랫폼 내 서비스들이 개별적으로 동작하는 수준을 넘어, 플랫폼 환경 안에서 일관된 방식으로 유지·관리될 수 있도록 운영 관점과 기준을 정리했습니다.</div>
-            </div>
-            <div class="item">
-              <div class="small-title">맡은 역할</div>
-              <ul>
-                <li>플랫폼 공통 서비스 운영 및 개선</li>
-                <li>Managed Service 운영 및 개선</li>
-                <li>운영 이슈 분석 및 대응 체계 정비</li>
-                <li>로그·메트릭 기반 관측 체계 개선</li>
-              </ul>
-            </div>
-            <div class="item">
-              <div class="small-title">기술</div>
-              <div>Kubernetes, Spring, Vert.x Web, FastAPI, ELK, Prometheus, Grafana, Loki</div>
-            </div>
-          </div>
-
-          <div class="project">
-            <div class="project-head">
-              <h3 class="project-name">4) 온프레미스 환경의 Kubernetes 전환</h3>
-              <div class="project-period">2022 - 2023</div>
-            </div>
-            <div class="item">
-              <div class="small-title">프로젝트 개요</div>
-              <div>온프레미스 환경에서 운영되던 서비스를 Kubernetes 기반으로 전환하고 배포·운영 절차를 정비한 프로젝트입니다. 서비스별로 달랐던 배포 방식과 운영 기준을 통합해 일관된 운영 환경을 마련했습니다.</div>
-            </div>
-            <div class="item">
-              <div class="small-title">맡은 역할</div>
-              <ul>
-                <li>K3s 기반 클러스터 구축</li>
-                <li>GitOps 배포 파이프라인 구성</li>
-                <li>서비스 배치 기준 정립</li>
-                <li>로그 수집 시스템 구축</li>
-                <li>메트릭 수집 체계 구성</li>
-                <li>Grafana 대시보드 구축</li>
-              </ul>
-            </div>
-            <div class="item">
-              <div class="small-title">기술</div>
-              <div>K3s, Helm, GitLab CI, Argo CD, Harbor, Kaniko, Prometheus, Loki, Grafana</div>
-            </div>
-          </div>
-        </section>
-      </main>
-    </div>
-
-    <div class="footer-note">
-      본 문서는 2026년 5월 26일 기준으로 작성·업데이트되었으며, 현재 진행 중인 프로젝트의 내용이 포함되어 있습니다.<br/>HTML 기반으로 작성되어 브라우저·PDF 변환 환경에 따라 일부 줄바꿈, 여백, 폰트가 다르게 보일 수 있습니다.
-    </div>
-  </div>
+    <footer class="footer">
+      본 문서는 2026년 5월 26일 기준으로 작성·업데이트되었으며, 현재 진행 중인 프로젝트의 내용이 포함되어 있습니다.<br />
+      HTML 기반으로 작성되어 브라우저·PDF 변환 환경에 따라 일부 줄바꿈, 여백, 폰트가 다르게 보일 수 있습니다.
+    </footer>
+  </main>
 </body>
 </html>
