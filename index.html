@@ -3,152 +3,232 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>신경선 경력기술서 - Backend AI Service</title>
+  <title>신경선 - Platform Engineer</title>
   <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
     :root {
-      --text: #111111;
-      --muted: #666666;
-      --line: #bdbdbd;
-      --accent: #222222;
+      --text-main: #202124;
+      --text-muted: #5f6368;
+      --bg-main: #ffffff;
+      --bg-alt: #f8f9fa;
+      --accent: #1a73e8;
+      --border: #dadce0;
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      background: #ffffff;
-      color: var(--text);
-      font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-      line-height: 1.45;
-      font-size: 14px;
+      background: var(--bg-alt);
+      color: var(--text-main);
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+      line-height: 1.6;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     .page {
-      width: 860px;
-      margin: 0 auto;
-      padding: 42px 48px 56px;
-      background: #ffffff;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 60px 70px;
+      background: var(--bg-main);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border-radius: 8px;
     }
 
+    /* Header */
     .header {
-      text-align: center;
-      padding-bottom: 14px;
-      margin-bottom: 28px;
-      border-bottom: 1px solid #888888;
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid var(--text-main);
     }
 
     .name {
       font-size: 42px;
       font-weight: 800;
-      margin: 0 0 8px;
-      color: #444444;
-      letter-spacing: -0.03em;
+      margin: 0 0 4px;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
     }
 
     .role {
-      font-size: 16px;
-      font-weight: 700;
-      margin: 0 0 8px;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 0 0 16px;
     }
 
     .contact {
       display: flex;
-      justify-content: center;
-      gap: 10px;
       flex-wrap: wrap;
-      font-size: 13px;
-      color: var(--text);
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text-muted);
     }
 
-    .contact span + span::before {
-      content: "|";
-      margin-right: 10px;
-      color: var(--muted);
+    .contact a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
     }
 
-    .section { margin-bottom: 30px; }
-
-    .section-title {
-      font-size: 16px;
-      font-weight: 800;
-      text-decoration: underline;
-      margin: 0 0 14px;
+    .contact a:hover {
       color: var(--accent);
     }
 
-    .career-list,
-    .tech-list,
-    .cert-list {
-      margin: 0 0 0 22px;
+    .contact span + span::before {
+      content: "·";
+      margin-right: 12px;
+      color: var(--border);
+    }
+
+    /* Sections */
+    .section { margin-bottom: 48px; }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 20px;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    /* Lists */
+    ul {
+      margin: 0 0 0 24px;
       padding: 0;
     }
 
-    li { margin-bottom: 6px; }
+    li { margin-bottom: 8px; }
 
-    .company-block { margin-bottom: 28px; }
+    .summary-list li {
+      font-size: 15.5px;
+    }
 
-    .company-head,
-    .project-head {
+    /* Tech Stack */
+    .tech-list {
+      list-style: none;
+      margin: 0;
+    }
+    
+    .tech-list li {
+      margin-bottom: 10px;
+    }
+    
+    .tech-category {
+      display: inline-block;
+      width: 130px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Experience */
+    .company-block { margin-bottom: 32px; }
+
+    .company-head {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 16px;
       margin-bottom: 4px;
     }
 
-    .company-name,
-    .project-name {
-      font-size: 17px;
-      font-weight: 800;
+    .company-name {
+      font-size: 19px;
+      font-weight: 700;
       margin: 0;
     }
 
     .period {
-      font-size: 12px;
-      color: var(--muted);
-      white-space: nowrap;
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
     }
 
     .position {
-      font-size: 14px;
-      font-style: italic;
-      margin: 0 0 8px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 0 0 12px;
     }
 
-    .project { margin-bottom: 24px; }
+    .company-desc {
+      margin-bottom: 16px;
+      color: var(--text-muted);
+    }
+
+    /* Projects */
+    .project { margin-bottom: 36px; }
+
+    .project-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+
+    .project-name {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0;
+      color: var(--text-main);
+    }
+
+    .project-desc {
+      font-size: 14.5px;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      padding: 12px 16px;
+      background: var(--bg-alt);
+      border-radius: 6px;
+      border-left: 3px solid var(--accent);
+    }
 
     .project-meta {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 8px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
     }
 
-    .project-meta strong { color: var(--text); }
+    .project-meta strong { color: var(--text-main); font-weight: 600; }
 
-    .divider-title {
-      margin: 34px 0 22px;
-      padding-top: 12px;
-      border-top: 1px solid #999999;
-      text-align: center;
-      font-size: 22px;
-      font-weight: 800;
-      text-decoration: underline;
+    /* Sub Missions */
+    .sub-mission {
+      margin-top: 16px;
+      padding-left: 20px;
+      border-left: 2px solid var(--border);
     }
 
+    .sub-mission-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin: 0 0 8px;
+      color: var(--text-main);
+    }
+
+    /* Footer */
     .footer {
-      margin-top: 34px;
-      padding-top: 12px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 12px;
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 13px;
+      text-align: center;
     }
 
     @media print {
+      body { background: #ffffff; }
       .page {
-        width: 100%;
-        padding: 28px 42px;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        max-width: 100%;
       }
+      .section { page-break-inside: avoid; }
+      .project { page-break-inside: avoid; }
     }
   </style>
 </head>
@@ -156,151 +236,166 @@
   <main class="page">
     <header class="header">
       <h1 class="name">신경선</h1>
-      <p class="role">Backend Engineer / Platform Engineer</p>
+      <p class="role">Platform Engineer</p>
       <div class="contact">
-        <span>Location: Seoul, South Korea</span>
-        <span>Email: tlsrid1119@gmail.com</span>
-        <span>GitHub: github.com/shin-gyeongseon</span>
+        <span>Seoul, South Korea</span>
+        <span><a href="mailto:tlsrid1119@gmail.com">tlsrid1119@gmail.com</a></span>
+        <span><a href="https://github.com/shin-gyeongseon" target="_blank">github.com/shin-gyeongseon</a></span>
       </div>
     </header>
 
     <section class="section">
       <h2 class="section-title">Summary</h2>
-      <ul class="career-list">
-        <li>Java/Spring Boot 기반 백엔드 개발 경험을 바탕으로 플랫폼 서비스와 관리형 서비스의 API 설계·구현 수행</li>
-        <li>Kubernetes 기반 서비스 운영, CI/CD, GitOps, 모니터링 체계 구축을 통해 배포·운영 절차 표준화</li>
-        <li>Hybrid Cloud 플랫폼에서 공통 서비스와 Managed Service를 운영·개선하며 서비스 운영 안정성 확보</li>
-        <li>생성형 AI 워크플로우와 분산 AI 워크로드를 플랫폼에서 생성·배포·관리할 수 있는 백엔드 구조로 설계</li>
+      <ul class="summary-list">
+        <li>대규모 하이브리드 클라우드(Azure & On-Premise) 환경에서 Kubernetes 기반의 인프라 아키텍처를 설계하고 운영을 총괄하는 플랫폼 엔지니어입니다.</li>
+        <li>복잡한 이기종 인프라 및 오픈소스 기술 스택을 MSA 기반의 '매니지드 서비스(Managed Service)'로 추상화하여, 개발자가 비즈니스 로직에만 집중할 수 있는 환경을 제공합니다.</li>
+        <li>LLMOps(Ray, Langflow 등) 및 데이터 파이프라인에 대한 깊은 이해를 바탕으로, 목적별 AI 워크로드를 통합 제어하는 엔터프라이즈 AI 플랫폼 인프라를 구축했습니다.</li>
+        <li>Argo Workflow와 Argo CD를 결합한 GitOps 오케스트레이션 체계를 도입하여, 인프라 프로비저닝부터 워크로드 배포까지의 전체 라이프사이클을 선언적으로 자동화합니다.</li>
       </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Work Experience</h2>
+
+      <div class="company-block">
+        <div class="company-head">
+          <h3 class="company-name">SHIFTONE Inc.</h3>
+          <div class="period">2022.03 - PRESENT</div>
+        </div>
+        <p class="position">Platform Engineer</p>
+        <p class="company-desc">
+          대규모 하이브리드 클라우드 환경에서 온프레미스 Kubernetes 클러스터 생태계를 전담하며, 코어 인프라(CDN, Metering) 및 AI 통합 플랫폼의 아키텍처 설계와 운영 주도
+        </p>
+        <ul>
+          <li>K8s Operator 패턴 및 Fabric을 활용하여, 대규모 분산 AI 워크로드(Ray)와 LLM 파이프라인(Langflow)을 커스텀 매니지드 서비스로 내재화</li>
+          <li>백엔드 API와 Argo 워크플로우를 연동하여 인프라 배포를 100% 자동화하는 GitOps 파이프라인 구축 및 테넌트(Tenant) 격리 환경 설계</li>
+          <li>이벤트 기반(Eclipse Vert.x) 비동기 처리 및 ELK 스택을 활용하여 플랫폼 공통 서비스(CDN, 데이터 미터링)의 성능 최적화 및 관측성(Observability) 확보</li>
+          <li>기존 온프레미스 레거시 시스템의 컨테이너화(Containerization)를 주도하고 클라우드 네이티브 표준 운영 지침 수립</li>
+        </ul>
+      </div>
+
+      <div class="company-block">
+        <div class="company-head">
+          <h3 class="company-name">TOMATO SYSTEM Inc.</h3>
+          <div class="period">2020.01 - 2022.02</div>
+        </div>
+        <p class="position">Backend Engineer</p>
+        <p class="company-desc">
+          학교 및 기업 대상 포털 솔루션의 백엔드 시스템 개발 및 고객사별 맞춤형 커스터마이징 수행.
+        </p>
+        <ul>
+          <li>Java/Spring 프레임워크 기반 웹 포털 솔루션 백엔드 로직 개발 및 유지보수</li>
+          <li>고객 요구사항 분석 및 개인화 위젯, 권한 관리 등 핵심 기능 화면 연동·개선</li>
+          <li>솔루션 패치 배포 및 실운영 환경 이슈 대응</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Project Experience</h2>
+
+      <div class="project">
+        <div class="project-head">
+          <h3 class="project-name">Generative AI 및 AGI를 대비한 비정형 데이터 시스템 구축</h3>
+          <div class="period">SHIFTONE Inc.</div>
+        </div>
+        <div class="project-meta"><strong>Keywords:</strong> Kubernetes, Helm, Argo CD, Argo Workflow, Langflow, Phoenix, PostgreSQL</div>
+        <div class="project-desc">
+          생성형 AI 및 AGI 시대를 대비하여, 기업 내 비정형 데이터의 수집/저장(Vector DB)부터 LLM 파이프라인 개발, 서빙 및 관측에 이르는 엔터프라이즈 통합 AI 플랫폼 인프라 구축
+        </div>
+        
+        <div class="sub-mission">
+          <h4 class="sub-mission-title">Phase 1. LLM 파이프라인 및 관측성 매니지드 서비스 (Langflow, Phoenix)</h4>
+          <div style="font-size: 14.5px; color: var(--text-muted); margin-bottom: 12px;">
+            사용자가 복잡한 인프라 설정 없이 생성형 AI 파이프라인을 배포할 수 있도록, 다양한 AI 기술 스택을 단일 플랫폼 API로 추상화하여 통합 환경 제공
+          </div>
+          <ul>
+            <li>백엔드에서 동적으로 Helm 차트를 가공하면, Argo Workflow가 Git 저장소 셋업부터 Argo CD Application 등록까지의 전체 GitOps 파이프라인을 비동기로 자동 구성하는 배포 체계 확립</li>
+            <li>개발용 Langflow UI와 서빙용 Runtime 인프라를 구조적으로 분리. 사용자가 설계한 워크플로우 명세(Spec)를 선언적 배포 파라미터로 자동 매핑하여, GitOps 파이프라인을 거쳐 서빙 전용 Runtime 서버가 독립적으로 구동되도록 설계</li>
+            <li>여러 사용자나 부서(Tenant)가 하나의 플랫폼을 안전하게 공유할 수 있도록 외부 PostgreSQL을 연동하고, 논리적 DB 분리 방식을 통해 강력한 테넌트 격리 및 데이터 영속성 보장</li>
+            <li>런타임에 배포된 LLM 파이프라인의 실행 추적(Tracing) 및 품질 검증을 위해 Phoenix 기반의 독립된 매니지드 서비스를 구성하여 사용자가 원할 때 자유롭게 연동할 수 있도록 지원</li>
+          </ul>
+        </div>
+        
+        <div class="sub-mission">
+          <h4 class="sub-mission-title">Phase 2. 비정형 데이터 벡터 저장소 매니지드 서비스 (Milvus) - 진행/예정</h4>
+          <ul>
+            <li>비정형 데이터의 효율적인 검색과 RAG(Retrieval-Augmented Generation) 파이프라인 지원을 위한 Milvus 인프라 내재화 및 매니지드 서비스화 (진행중)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <h3 class="project-name">LLM 서빙 및 대규모 분산 학습을 위한 K8s 기반 Ray 인프라 플랫폼 개발</h3>
+          <div class="period">SHIFTONE Inc.</div>
+        </div>
+        <div class="project-meta"><strong>Keywords:</strong> Kubernetes Operator, Ray Ecosystem (Serve, Job, Cluster), Fabric, Spring Boot, Python</div>
+        <div class="project-desc">
+          다양한 AI 워크로드(추론, 학습, 실험)를 통합 지원하기 위해 Fabric과 Kubernetes Operator를 활용하여 Ray 생태계 전반을 아우르는 커스텀 매니지드 서비스 아키텍처 설계
+        </div>
+        <ul>
+          <li>K8s Operator(CRD) 기반의 제어 로직을 개발하여, 플랫폼 사용자의 API 요청에 따라 Ray Serve(LLM 추론), Ray Job(분산 학습), Ray Cluster(전문가용 개발 환경)를 동적으로 프로비저닝</li>
+          <li>사용자가 정의한 CR(Custom Resource) 스펙에 기반하여 워크로드별 GPU/CPU 리소스를 동적 할당하고, 다수의 AI 실험이 충돌 없이 병렬 실행될 수 있도록 워크로드 격리 제어</li>
+          <li>대규모 분산 환경의 인프라 효율성을 높이고 유휴 자원 낭비를 방지하기 위해, 워크로드 부하에 따른 워커 노드 오토스케일링(Autoscaling) 체계 구축</li>
+          <li>플랫폼 사용자가 분산 컴퓨팅의 복잡도 없이 목적에 맞는 Ray 워크로드를 즉시 활용할 수 있도록 공통 실행 인터페이스 및 백엔드 연동</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <h3 class="project-name">하이브리드 클라우드 플랫폼 운영</h3>
+          <div class="period">SHIFTONE Inc.</div>
+        </div>
+        <div class="project-meta"><strong>Keywords:</strong> Eclipse Vert.x, Elasticsearch, Kibana, Kubernetes, REST API, MSA</div>
+        <div class="project-desc">
+          퍼블릭 클라우드(Azure)와 온프레미스를 아우르는 대규모 하이브리드 클라우드 환경에서 온프레미스 기반의 Kubernetes 클러스터 운영을 전담하며, 플랫폼의 핵심 인프라(CDN, Metering, Managed Service) 확장성 및 안정성을 고도화
+        </div>
+        <ul>
+          <li>Event-driven 기반의 비동기 아키텍처(Eclipse Vert.x)를 적용한 CDN 시스템을 전담 운영하며, 플랫폼 내 대규모 파일 및 사진 처리 트래픽 병목 해소</li>
+          <li>대용량 서비스 로그 및 지표 데이터를 가공해 Elasticsearch에 적재하고, Kibana 대시보드로 시각화하여 데이터 기반의 미터링(Metering) 모니터링 환경 구축</li>
+          <li>Object Storage, Kubeflow 등 배포 방식(Helm, K8s CR 등)이 제각각인 매니지드 서비스들을 MSA 구조로 독립적으로 개발 및 운영하며, 복잡한 스펙을 RESTful API로 추상화하여 제공</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <h3 class="project-name">Kubernetes 기반 서비스 전환 및 DevOps 운영 체계 구축</h3>
+          <div class="period">SHIFTONE Inc.</div>
+        </div>
+        <div class="project-meta"><strong>Keywords:</strong> Kubernetes, Helm, GitLab CI, Argo CD, Harbor, Prometheus, Loki, Grafana</div>
+        <div class="project-desc">
+          기존 레거시(온프레미스) 환경의 서비스를 K8s 기반으로 마이그레이션하고, 자동화된 빌드·배포·모니터링 표준 기반 확립
+        </div>
+        <ul>
+          <li>온프레미스 기반의 기존 레거시 서비스를 K8s 환경의 컨테이너 아키텍처로 성공적으로 전환</li>
+          <li>GitLab CI, Harbor, Argo CD를 연계하여 애플리케이션 빌드, 이미지 저장, 클러스터 배포가 명확히 분리된 GitOps 파이프라인 구성</li>
+          <li>Prometheus, Loki, Grafana 기반의 로깅 및 메트릭 대시보드를 구축해 서비스 레벨과 인프라 레벨의 장애를 신속하게 식별할 수 있는 관측 기반 마련</li>
+        </ul>
+      </div>
     </section>
 
     <section class="section">
       <h2 class="section-title">Technical Skills</h2>
       <ul class="tech-list">
-        <li><strong>Languages:</strong> Java, Python, Go</li>
-        <li><strong>Backend:</strong> Spring Boot, Spring MVC, FastAPI</li>
-        <li><strong>AI Platform:</strong> Langflow, Ray, Phoenix</li>
-        <li><strong>Database:</strong> Oracle, PostgreSQL, Redis</li>
-        <li><strong>Cloud Native:</strong> Kubernetes, Docker, Helm, Argo CD, GitLab CI, Harbor</li>
-        <li><strong>Observability:</strong> Grafana, Prometheus, Loki, Kibana</li>
+        <li><span class="tech-category">Cloud Native</span> Kubernetes, Docker, Helm, Argo CD, GitLab CI, Harbor</li>
+        <li><span class="tech-category">AI Platform</span> Ray, Langflow, Phoenix</li>
+        <li><span class="tech-category">Observability</span> Grafana, Prometheus, Loki, Kibana</li>
+        <li><span class="tech-category">Backend</span> Java, Spring Boot, Python, Go</li>
+        <li><span class="tech-category">Database</span> PostgreSQL, Oracle, Redis</li>
       </ul>
-    </section>
-
-    <div class="divider-title">Professional Experience</div>
-
-    <section class="section">
-      <div class="company-block">
-        <div class="company-head">
-          <h2 class="company-name">SHIFTONE Inc.</h2>
-          <div class="period">2022 - PRESENT</div>
-        </div>
-        <p class="position">Backend / Platform Engineer</p>
-
-        <p>
-          클라우드 플랫폼 환경에서 백엔드 개발, DevOps 체계 구축, Managed Service 운영·개선 업무를 수행했습니다.
-          서비스 배포와 운영 기준을 표준화하고, 플랫폼 사용자가 인프라 세부 구조를 직접 다루지 않아도 서비스를 생성·배포·관리할 수 있는 구조를 만드는 데 집중했습니다.
-        </p>
-
-        <ul>
-          <li>온프레미스 서비스를 Kubernetes 기반으로 전환하고, CI/CD·GitOps·모니터링 중심의 DevOps 운영 체계 구축</li>
-          <li>Hybrid Cloud 플랫폼에서 공통 서비스와 Managed Service의 운영·개선 업무 수행</li>
-          <li>서비스 생성, 설정 가공, 배포 제어, 상태 조회 흐름을 플랫폼 API 중심으로 표준화</li>
-          <li>AI 워크로드를 플랫폼에서 생성·배포·관리할 수 있도록 관리형 서비스 API 설계 및 개발</li>
-          <li>서비스 운영에 필요한 배포 설정, 데이터 저장, 상태 확인 기준을 정리해 운영 안정성 개선</li>
-        </ul>
-      </div>
-
-      <div class="company-block">
-        <div class="company-head">
-          <h2 class="company-name">TOMATO SYSTEM Inc.</h2>
-          <div class="period">2020 - 2022</div>
-        </div>
-        <p class="position">Backend Engineer</p>
-
-        <p>
-          학교 및 기업 고객에게 제공되는 포털 솔루션의 백엔드 개발·맞춤화·유지보수를 수행했습니다.
-          사용자별 개인화 영역을 중심으로 고객 요구사항을 서버 기능과 데이터 처리 흐름에 반영했습니다.
-        </p>
-
-        <ul>
-          <li>학교 및 기업 고객 대상 웹 포털 솔루션 개발 및 개선</li>
-          <li>사용자별 개인화 기능의 서버 로직 개발 및 화면 연동 개선</li>
-          <li>고객사 요구사항과 운영 환경에 맞춘 기능 커스터마이징 수행</li>
-          <li>포털 솔루션 운영 유지보수 및 패치 대응</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Selected Project Experience</h2>
-
-      <div class="project">
-        <div class="project-head">
-          <h3 class="project-name">Generative AI Workflow Managed Service</h3>
-          <div class="period">SHIFTONE Inc.</div>
-        </div>
-        <div class="project-meta"><strong>Keywords:</strong> Java, Spring Boot, Langflow, PostgreSQL, Kubernetes, Helm, Phoenix</div>
-        <ul>
-          <li>생성형 AI 워크플로우를 플랫폼에서 생성·배포·관리할 수 있는 관리형 서비스 구조 설계</li>
-          <li>사용자 요청을 플랫폼 내부 정책에 맞는 배포 설정으로 변환하는 백엔드 제어 로직 구현</li>
-          <li>개발용 워크플로우 환경과 운영용 Runtime 실행 환경을 분리해 서비스 운영 구조 구성</li>
-          <li>실행 결과를 추적하고 워크플로우 품질을 반복 개선할 수 있는 관측 기반 마련</li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <div class="project-head">
-          <h3 class="project-name">Distributed AI Workload Execution Platform</h3>
-          <div class="period">SHIFTONE Inc.</div>
-        </div>
-        <div class="project-meta"><strong>Keywords:</strong> Java, Spring Boot, Kubernetes Client, Ray, CRD Control</div>
-        <ul>
-          <li>분산 AI 작업의 실행 요청, 자원 할당, 상태 조회를 플랫폼 API로 다룰 수 있도록 실행 인터페이스 설계</li>
-          <li>Kubernetes와 Ray 실행 구조를 서비스 레벨 인터페이스 뒤로 추상화</li>
-          <li>공통 Kubernetes Client 모듈을 구현해 리소스 제어와 상태 관리 로직 표준화</li>
-          <li>사용자가 인프라 세부 구조를 직접 조작하지 않고도 분산 학습·서빙 작업을 요청할 수 있는 구조 제공</li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <div class="project-head">
-          <h3 class="project-name">Hybrid Cloud Platform Service Operation</h3>
-          <div class="period">SHIFTONE Inc.</div>
-        </div>
-        <div class="project-meta"><strong>Keywords:</strong> Hybrid Cloud, Managed Service, CDN, Object Storage, Platform Operation</div>
-        <ul>
-          <li>Hybrid Cloud 플랫폼에서 공통 서비스와 Managed Service의 운영·개선 업무 수행</li>
-          <li>CDN 등 여러 서비스가 의존하는 공통 기능을 유지보수하고 운영 이슈 대응</li>
-          <li>오픈소스 기반 Managed Service를 플랫폼 기준에 맞게 운영할 수 있도록 설정과 운영 방식 개선</li>
-          <li>서비스 운영 기준을 정리해 플랫폼 내 서비스의 유지보수성과 운영 일관성 개선</li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <div class="project-head">
-          <h3 class="project-name">Kubernetes-based Service Operation Standardization</h3>
-          <div class="period">SHIFTONE Inc.</div>
-        </div>
-        <div class="project-meta"><strong>Keywords:</strong> Kubernetes, Helm, GitLab CI, Argo CD, Harbor, Prometheus, Loki, Grafana</div>
-        <ul>
-          <li>기존 온프레미스 서비스를 Kubernetes 기반으로 전환하고 배포·운영 절차 표준화</li>
-          <li>GitLab CI, Harbor, Argo CD를 연계해 빌드·저장·배포 반영이 분리된 GitOps 배포 흐름 구성</li>
-          <li>로그·메트릭 기반 운영 가시성을 확보해 서비스 문제와 인프라 문제를 구분할 수 있는 운영 기반 마련</li>
-        </ul>
-      </div>
     </section>
 
     <section class="section">
       <h2 class="section-title">Certifications</h2>
-      <ul class="cert-list">
-        <li>CKA (Certified Kubernetes Administrator) · CNCF / The Linux Foundation</li>
-        <li>정보처리기사 · 한국산업인력공단(HRD Korea)</li>
+      <ul>
+        <li><strong>CKA (Certified Kubernetes Administrator)</strong> · CNCF / The Linux Foundation</li>
+        <li><strong>정보처리기사</strong> · 한국산업인력공단(HRD Korea)</li>
       </ul>
     </section>
 
     <footer class="footer">
-      본 문서는 2026년 5월 13일 기준으로 작성·업데이트되었으며, Java/Spring Boot 백엔드, AI 워크로드 플랫폼화, Kubernetes 기반 운영 역량을 중심으로 재구성되었습니다.<br />
-      HTML 기반으로 작성되어 브라우저·PDF 변환 환경에 따라 일부 줄바꿈, 여백, 폰트가 다르게 보일 수 있습니다.
+      본 이력서는 2026년 7월 업데이트되었습니다. 웹 브라우저 환경(HTML)에 최적화되어 제작되었으며, PDF 등 다른 포맷으로 변환하여 열람하실 경우 일부 서식 및 레이아웃이 원본과 다르게 표시될 수 있습니다.
     </footer>
   </main>
 </body>
