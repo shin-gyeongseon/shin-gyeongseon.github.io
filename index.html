@@ -1,259 +1,6 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<<<<<<< HEAD
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>신경선 - Platform Engineer</title>
-  <style>
-    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-
-    :root {
-      --text-main: #202124;
-      --text-muted: #5f6368;
-      --bg-main: #ffffff;
-      --bg-alt: #f8f9fa;
-      --accent: #1a73e8;
-      --border: #dadce0;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: var(--bg-alt);
-      color: var(--text-main);
-      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-      line-height: 1.6;
-      font-size: 15px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    .page {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 60px 70px;
-      background: var(--bg-main);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      border-radius: 8px;
-    }
-
-    /* Header */
-    .header {
-      margin-bottom: 40px;
-      padding-bottom: 24px;
-      border-bottom: 2px solid var(--text-main);
-    }
-
-    .name {
-      font-size: 42px;
-      font-weight: 800;
-      margin: 0 0 4px;
-      letter-spacing: -0.02em;
-      color: var(--text-main);
-    }
-
-    .role {
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--accent);
-      margin: 0 0 16px;
-    }
-
-    .contact {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    .contact a {
-      color: inherit;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .contact a:hover {
-      color: var(--accent);
-    }
-
-    .contact span + span::before {
-      content: "·";
-      margin-right: 12px;
-      color: var(--border);
-    }
-
-    /* Sections */
-    .section { margin-bottom: 48px; }
-
-    .section-title {
-      font-size: 22px;
-      font-weight: 700;
-      margin: 0 0 20px;
-      color: var(--text-main);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 8px;
-      letter-spacing: -0.01em;
-    }
-
-    /* Lists */
-    ul {
-      margin: 0 0 0 24px;
-      padding: 0;
-    }
-
-    li { margin-bottom: 8px; }
-
-    .summary-list li {
-      font-size: 15.5px;
-    }
-
-    /* Tech Stack */
-    .tech-list {
-      list-style: none;
-      margin: 0;
-    }
-    
-    .tech-list li {
-      margin-bottom: 10px;
-    }
-    
-    .tech-category {
-      display: inline-block;
-      width: 130px;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    /* Experience */
-    .company-block { margin-bottom: 32px; }
-
-    .company-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 4px;
-    }
-
-    .company-name {
-      font-size: 19px;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .period {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-muted);
-    }
-
-    .position {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--accent);
-      margin: 0 0 12px;
-    }
-
-    .company-desc {
-      margin-bottom: 16px;
-      color: var(--text-muted);
-    }
-
-    /* Projects */
-    .project { margin-bottom: 36px; }
-
-    .project-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 6px;
-    }
-
-    .project-name {
-      font-size: 18px;
-      font-weight: 700;
-      margin: 0;
-      color: var(--text-main);
-    }
-
-    .project-desc {
-      font-size: 14.5px;
-      color: var(--text-main);
-      margin-bottom: 12px;
-      padding: 12px 16px;
-      background: var(--bg-alt);
-      border-radius: 6px;
-      border-left: 3px solid var(--accent);
-    }
-
-    .project-meta {
-      font-size: 13.5px;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-
-    .project-meta strong { color: var(--text-main); font-weight: 600; }
-
-    /* Sub Missions */
-    .sub-mission {
-      margin-top: 16px;
-      padding-left: 20px;
-      border-left: 2px solid var(--border);
-    }
-
-    .sub-mission-title {
-      font-size: 15px;
-      font-weight: 700;
-      margin: 0 0 8px;
-      color: var(--text-main);
-    }
-
-    /* Footer */
-    .footer {
-      margin-top: 60px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-      color: var(--text-muted);
-      font-size: 13px;
-      text-align: center;
-    }
-
-    @media print {
-      body { background: #ffffff; }
-      .page {
-        margin: 0;
-        padding: 0;
-        box-shadow: none;
-        max-width: 100%;
-      }
-      .section { page-break-inside: avoid; }
-      .project { page-break-inside: avoid; }
-    }
-  </style>
-</head>
-<body>
-  <main class="page">
-    <header class="header">
-      <h1 class="name">신경선</h1>
-      <p class="role">Platform Engineer</p>
-      <div class="contact">
-        <span>Seoul, South Korea</span>
-        <span><a href="mailto:tlsrid1119@gmail.com">tlsrid1119@gmail.com</a></span>
-        <span><a href="https://github.com/shin-gyeongseon" target="_blank">github.com/shin-gyeongseon</a></span>
-      </div>
-    </header>
-
-    <section class="section">
-      <h2 class="section-title">Summary</h2>
-      <ul class="summary-list">
-        <li>대규모 하이브리드 클라우드(Azure & On-Premise) 환경에서 Kubernetes 기반 인프라 운영 및 시스템 고도화를 담당하는 플랫폼 엔지니어입니다.</li>
-        <li>복잡한 이기종 인프라 및 오픈소스 기술 스택을 MSA 기반의 '매니지드 서비스(Managed Service)'로 추상화하여, 개발자가 비즈니스 로직에만 집중할 수 있는 환경을 제공합니다.</li>
-        <li>LLMOps(Ray, Langflow 등) 및 데이터 파이프라인에 대한 깊은 이해를 바탕으로, 목적별 AI 워크로드를 통합 제어하는 엔터프라이즈 AI 플랫폼 인프라를 구축했습니다.</li>
-        <li>Argo Workflow와 Argo CD를 결합한 GitOps 오케스트레이션 체계를 도입하여, 인프라 프로비저닝부터 워크로드 배포까지의 전체 라이프사이클을 선언적으로 자동화합니다.</li>
-      </ul>
-=======
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Kubernetes 기반 Managed Service와 Platform Engineering, Backend/SRE 문제를 해결하는 신경선의 기술 포트폴리오입니다.">
@@ -311,7 +58,6 @@
       </div>
 
       <a class="scroll-cue" href="#focus"><span data-i18n="scroll">아래로 살펴보기</span><i aria-hidden="true"></i></a>
->>>>>>> ce17596 (page 수정)
     </section>
 
     <section class="section focus" id="focus" aria-labelledby="focus-title">
@@ -321,34 +67,6 @@
           <h2 id="focus-title" data-i18n="focusTitle">제가 주로 해결하는 문제</h2>
           <p data-i18n="focusIntro">기술 자체보다, 기술을 실제 사용 가능한 운영 흐름으로 만드는 일에 집중합니다.</p>
         </div>
-<<<<<<< HEAD
-        <p class="position">Platform Engineer</p>
-        <p class="company-desc">
-          대규모 하이브리드 클라우드 환경에서 온프레미스 Kubernetes 클러스터 생태계를 전담하며, 코어 인프라(CDN, Metering) 및 AI 통합 플랫폼의 아키텍처 설계와 운영 주도
-        </p>
-        <ul>
-          <li>K8s Operator 패턴 및 Fabric을 활용하여, 대규모 분산 AI 워크로드(Ray)와 LLM 파이프라인(Langflow)을 커스텀 매니지드 서비스로 내재화</li>
-          <li>백엔드 API와 Argo 워크플로우를 연동하여 인프라 배포를 100% 자동화하는 GitOps 파이프라인 구축 및 테넌트(Tenant) 격리 환경 설계</li>
-          <li>이벤트 기반(Eclipse Vert.x) 비동기 처리 및 ELK 스택을 활용하여 플랫폼 공통 서비스(CDN, 데이터 미터링)의 성능 최적화 및 관측성(Observability) 확보</li>
-          <li>기존 온프레미스 레거시 시스템의 컨테이너화(Containerization)를 주도하고 클라우드 네이티브 표준 운영 지침 수립</li>
-        </ul>
-      </div>
-
-      <div class="company-block">
-        <div class="company-head">
-          <h3 class="company-name">TOMATO SYSTEM Inc.</h3>
-          <div class="period">2020.01 - 2022.02</div>
-        </div>
-        <p class="position">Backend Engineer</p>
-        <p class="company-desc">
-          학교 및 기업 대상 포털 솔루션의 백엔드 시스템 개발 및 고객사별 맞춤형 커스터마이징 수행.
-        </p>
-        <ul>
-          <li>Java/Spring 프레임워크 기반 웹 포털 솔루션 백엔드 로직 개발 및 유지보수</li>
-          <li>고객 요구사항 분석 및 개인화 위젯, 권한 관리 등 핵심 기능 화면 연동·개선</li>
-          <li>솔루션 패치 배포 및 실운영 환경 이슈 대응</li>
-        </ul>
-=======
       </div>
 
       <div class="focus-grid">
@@ -377,7 +95,6 @@
           <h3>SRE / Automation</h3>
           <p data-i18n="focus5">운영 데이터를 기준으로 반복 작업과 불필요한 알림을 줄이고 대응 흐름을 개선합니다.</p>
         </article>
->>>>>>> ce17596 (page 수정)
       </div>
     </section>
 
@@ -470,17 +187,6 @@
       </div>
     </section>
 
-<<<<<<< HEAD
-    <section class="section">
-      <h2 class="section-title">Technical Skills</h2>
-      <ul class="tech-list">
-        <li><span class="tech-category">Cloud Native</span> Kubernetes, Docker, Helm, Argo CD, GitLab CI, Harbor</li>
-        <li><span class="tech-category">AI Platform</span> Ray, Langflow, Phoenix</li>
-        <li><span class="tech-category">Observability</span> Grafana, Prometheus, Loki, Kibana</li>
-        <li><span class="tech-category">Backend</span> Java, Spring Boot, Python, Go</li>
-        <li><span class="tech-category">Database</span> PostgreSQL, Oracle, Redis</li>
-      </ul>
-=======
     <section class="contact-section reveal" aria-labelledby="contact-title">
       <p class="section-index">04 / NEXT</p>
       <h2 id="contact-title" data-i18n-html="nextTitle">플랫폼과 백엔드에 관한<br>좋은 대화를 기다립니다.</h2>
@@ -491,7 +197,6 @@
         <a href="mailto:tlsrid1119@gmail.com">tlsrid1119@gmail.com <span aria-hidden="true">→</span></a>
         <span class="coming-soon" data-i18n="linkedinSoon">LinkedIn · 준비 중</span>
       </div>
->>>>>>> ce17596 (page 수정)
     </section>
   </main>
 
