@@ -4,7 +4,7 @@ const translations = {
     description: 'Kubernetes 기반 Managed Service와 Platform Engineering, Backend/SRE 문제를 해결하는 신경선의 기술 포트폴리오입니다.',
     homeLabel: '처음으로', languageLabel: '언어 선택', navLabel: '주요 메뉴', skipLink: '본문으로 바로가기', displayName: '신경선',
     navFocus: '전문 영역', navWork: '프로젝트', navExperience: '경력',
-    viewResume: 'Resume 보기', contact: '연락하기',
+    viewResume: 'Resume 보기', resumeComingSoon: '현재 준비중입니다.', contact: '연락하기',
     heroTitle: '복잡한 인프라를,<br><em>팀이 사용할 수 있는 플랫폼</em>으로 바꿉니다.',
     heroDescription: 'Kubernetes 기반 Managed Service와 Platform API를 설계하고, Backend와 SRE 관점에서 배포·관측·운영의 반복을 줄입니다.',
     approachLabel: '일하는 방식',
@@ -50,7 +50,7 @@ const translations = {
     description: 'Portfolio of Gyeongseon Shin, solving Platform Engineering, Kubernetes Managed Service, Backend, and SRE challenges.',
     homeLabel: 'Back to top', languageLabel: 'Select language', navLabel: 'Primary navigation', skipLink: 'Skip to content', displayName: 'Gyeongseon Shin',
     navFocus: 'Focus', navWork: 'Work', navExperience: 'Experience',
-    viewResume: 'View Resume', contact: 'Contact',
+    viewResume: 'View Resume', resumeComingSoon: 'The resume is currently being prepared.', contact: 'Contact',
     heroTitle: 'I turn complex infrastructure<br>into <em>platforms teams can use.</em>',
     heroDescription: 'I design Kubernetes-based managed services and platform APIs, reducing repetitive work across delivery, observability, and operations through a Backend and SRE lens.',
     approachLabel: 'Engineering approach',
@@ -127,6 +127,13 @@ const saveLanguage = (lang) => {
 
 languageButtons.forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.lang)));
 setLanguage(getSavedLanguage() || 'ko');
+
+document.querySelectorAll('[data-resume-coming-soon]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    alert(translations[document.documentElement.lang].resumeComingSoon);
+  });
+});
 
 const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 32);
 updateHeader();
